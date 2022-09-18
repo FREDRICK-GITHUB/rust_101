@@ -1,11 +1,36 @@
-use ferris_says::say;
-use std::io::{stdout, BufWriter};
+use std::io;
 
 fn main() {
-    let stdout = stdout();
-    let message = String::from("Hello fellow Rustaceans!");
-    let width = message.chars().count();
-
-    let mut writer = BufWriter::new(stdout.lock());
-    say(message.as_bytes(), width, &mut writer).unwrap();
+   loop {
+    println!("Enter A: ");
+    let a: f64 = {
+        let mut number = String::new();
+        io::stdin().read_line( &mut number).expect("error");
+        let nn:f64 = match number.trim().parse(){
+            Ok(num) => num,
+            Err(_) => 0.0,
+        };
+        nn
+    };
+    println!("\n print B: ");
+    let b = {
+        let mut number = String::new();
+        io::stdin().read_line( &mut number).expect("error");
+        let nn:f64 = match number.trim().parse(){
+            Ok(num) => num,
+            Err(_) => 0.0,
+        };
+        nn
+    };
+    println!("\n use one of these: + - * /");
+    let sigs = {
+        let mut number = String::new();
+        io::stdin().read_line(&mut number).expect("error");
+        let nn:f64 = match number.trim().parse(){
+            Ok(num) => num,
+            Err(_) => 0.0,
+        };
+        nn
+    };
+   }
 }
